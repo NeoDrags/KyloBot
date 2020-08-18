@@ -1,10 +1,13 @@
 # import date
+from dotenv import load_dotenv
 import os
 import random
-import time
+from time import gmtime, strftime
 import discord
 
-TOKEN = "NzQwODU1NjczNjk2NDE5ODYw.XyvFnQ.dGoekmCe6y5pfKU53NBnX8CYQaE"
+load_dotenv()
+
+TOKEN = os.getenv("TOKEN")
 
 client = discord.Client()
 
@@ -27,7 +30,7 @@ async def on_message(message):
         response = """here are the commands that you can type they are : 
                     1) Whenever you wish someone happy birthday it will also respond happy birthday  
                     2) Type $help to execute this command which will display the commands that you can execute
-                    3) Type $time to show the current time
+                    3) Type $time to show the current time and date
                     4) Type $toss to peform the a coin toss
                     5) Type $date to show current date"""
         await message.channel.send(response)
@@ -40,10 +43,10 @@ async def on_message(message):
         else :
             await message.channel.send("Tails")
     elif message.content == '$time':
-        time = time.localtime(time.time())
-        await message.channel.send("The cureent time is : ", time)
+        time = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
+        await message.channel.send("The current time is ", time)
     elif message.content == '$date':
-        date = date.today()
+        date = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
         await message.channel.send('Today is : ', date)
     elif message.content.startswith('bye'):
         await message.channel.send('Bye see you soon')
