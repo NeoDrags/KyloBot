@@ -1,10 +1,10 @@
-
+# import date
 import os
 import random
 import time
 import discord
 
-TOKEN = "NzQwODU1NjczNjk2NDE5ODYw.XyvFnQ.GG3hmLmkpioTe0RTi-tnbQSxRNY"
+TOKEN = "NzQwODU1NjczNjk2NDE5ODYw.XyvFnQ.dGoekmCe6y5pfKU53NBnX8CYQaE"
 
 client = discord.Client()
 
@@ -45,8 +45,8 @@ async def on_message(message):
     elif message.content == '$date':
         date = date.today()
         await message.channel.send('Today is : ', date)
-    elif message.content == '$bye' :
+    elif message.content.startswith('bye'):
         await message.channel.send('Bye see you soon')
-    else:
+    elif message.content.startswith('$') and message.content != '$date' and message.content != '$time' and message.content != '$toss' :
         await message.channel.send("That command does not exist")
 client.run(TOKEN)
