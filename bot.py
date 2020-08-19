@@ -2,7 +2,7 @@
 from dotenv import load_dotenv
 import os
 import random
-from time import gmtime, strftime
+from datetime import datetime
 import discord
 
 load_dotenv()
@@ -43,10 +43,10 @@ async def on_message(message):
         else :
             await message.channel.send("Tails")
     elif message.content == '$time':
-        time = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
+        time = str(datetime.now().time())
         await message.channel.send("The current time is ", time)
     elif message.content == '$date':
-        date = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
+        date = str(datetime.now().date())
         await message.channel.send('Today is : ', date)
     elif message.content.startswith('bye'):
         await message.channel.send('Bye see you soon')
