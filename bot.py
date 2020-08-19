@@ -43,11 +43,11 @@ async def on_message(message):
         else :
             await message.channel.send("Tails")
     elif message.content == '$time':
-        time = str(datetime.now().time())
-        await message.channel.send("The current time is ", time)
+        time = "The current time is " + str(datetime.now().time())
+        await message.channel.send(time)
     elif message.content == '$date':
-        date = str(datetime.now().date())
-        await message.channel.send('Today is : ', date)
+        date = "Today's date is " + str(datetime.now().date())
+        await message.channel.send(date)
     elif message.content.startswith('bye'):
         await message.channel.send('Bye see you soon')
     elif message.content.startswith('$') and message.content != '$date' and message.content != '$time' and message.content != '$toss' :
