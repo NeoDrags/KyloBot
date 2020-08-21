@@ -27,7 +27,7 @@ async def on_message(message):
         response = "happy birthday!"
         await message.channel.send(response)
     
-    elif message.content == '$help':
+    elif str.lower(message.content) == '$help':
         response = """here are the commands that you can type they are : 
                     1) Whenever you wish someone happy birthday it will also respond happy birthday  
                     2) Type $help to execute this command which will display the commands that you can execute
@@ -36,7 +36,7 @@ async def on_message(message):
                     5) Type $date to show current date"""
         await message.channel.send(response)
     
-    elif message.content == '$toss':
+    elif str.lower(message.content) == '$toss':
         response = "Coin tossed"
         await message.channel.send(response)
         TossNum = random.randint(0, 1)
@@ -45,17 +45,20 @@ async def on_message(message):
         else :
             await message.channel.send("Tails")
     
-    elif message.content == '$time':
+    elif str.lower(message.content) == '$time':
         time = "The current time is " + str(datetime.now().time())
         await message.channel.send(time)
     
-    elif message.content == '$date':
+    elif str.lower(message.content) == '$date':
         date = "Today's date is " + str(datetime.now().date())
         await message.channel.send(date)
     
     elif message.content.startswith('bye'):
         await message.channel.send('Bye see you soon')
-    
+   
+    elif str.lower(message.content) == 'yeet':
+        await message.channel.send('Yeet!')
+
     elif message.content.startswith('$') and message.content != '$date' and message.content != '$time' and message.content != '$toss':
        await message.channel.send("That command does not exist")
 
