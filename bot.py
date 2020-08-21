@@ -56,7 +56,7 @@ async def on_message(message):
     elif message.content.startswith('bye'):
         await message.channel.send('Bye see you soon')
     
-    elif message.content.startswith('$') and message.content != '$date' and message.content != '$time' and message.content != '$toss' and !message.content.startswith('bye') and !message.content.startswith('happy birthday'):
+    elif message.content.startswith('$') and message.content != '$date' and message.content != '$time' and message.content != '$toss':
        await message.channel.send("That command does not exist")
 
 client.run(TOKEN)
