@@ -28,7 +28,7 @@ async def on_message(message):
     
     elif str.lower(message.content) == '$help':
         e = discord.Embed()
-        e.add_field(name = "response", value = """here are the commands that you can type they are :
+        e.add_field(name = "Commands that you can execute", value = """here are the commands that you can type they are :
                     1) Whenever you wish someone happy birthday it will also respond happy birthday
                     2) Type $help to execute this command which will display the commands that you can execute
                     3) Type $time to show the current time and date
@@ -45,7 +45,12 @@ async def on_message(message):
             await message.channel.send("Heads")
         else :
             await message.channel.send("Tails")
-    
+
+    elif str.lower(message.content) == 'execute order 66':
+        e = discord.Embed()
+        e.set_image(url = "https://img.cinemablend.com/filter:scale/quill/e/d/3/d/3/0/ed3d3077e9a6da391dd23249345cba386a826399.jpg?mw=600")
+        await message.channel.send(embed = e)
+
     elif str.lower(message.content) == '$time':
         time = "The current time is " + str(datetime.now().time())
         await message.channel.send(time)
