@@ -69,14 +69,15 @@ async def on_message(message):
         e = discord.Embed()
         RandomDate = random.randint(0, 4)
         if RandomDate == 0:
-            e.set_image(url = "https://play.google.com/store/apps/details?id=com.jazzyworlds.englishjokesimages&hl=en_US")
+            e.set_image(url = "https://i.pinimg.com/originals/63/fa/0e/63fa0ed29577611ffe5afa43bc298708.jpg")
         elif RandomDate == 1:
-            e.set_image(url = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fshort-funny.com%2F&psig=AOvVaw1R65P2bgMExS3GBU0iXkhS&ust=1598355352106000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMDhvMbfs-sCFQAAAAAdAAAAABAD")
+            e.set_image(url = "https://i.pinimg.com/originals/f1/4e/9c/f14e9c95b60ec398978c73cdec45d682.jpg")
         elif RandomDate == 2:
-            e.set_image(url = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fin.pinterest.com%2Fpin%2F840976930405154357%2F&psig=AOvVaw1-itUr0j6l0SEljJx5fsv1&ust=1598355479794000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCODZj4Pgs-sCFQAAAAAdAAAAABAD")
+            e.set_image(url = "https://i.pinimg.com/originals/16/46/49/1646496ee03b89f3764b2e06629e693d.jpg")
         elif RandomDate == 3:
-            e.set_image(url = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fin.pinterest.com%2Fpin%2F187814246932936755%2F&psig=AOvVaw35U1qrMdQRnh1ku2I0jtrW&ust=1598355588908000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLiqkrfgs-sCFQAAAAAdAAAAABAD")
+            e.set_image(url = "https://i.pinimg.com/originals/e0/04/7e/e0047ee0793602795410723a654c8826.jpg")
         elif RandomDate == 4:
+            print(5)
             e.set_image(url="https://www.jokescoff.com/wp-content/uploads/2017/12/Very-Funny-Jokes-for-Kids-in-English.jpg")
         await message.channel.send(embed = e)
 
