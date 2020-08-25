@@ -67,7 +67,7 @@ async def on_message(message):
     
     elif str.lower(message.content) == '$tell me a joke':
         e = discord.Embed()
-        RandomDate = random.randint(0, 4)
+        RandomDate = random.randint(0, 6)
         if RandomDate == 0:
             e.set_image(url = "https://i.pinimg.com/originals/63/fa/0e/63fa0ed29577611ffe5afa43bc298708.jpg")
         elif RandomDate == 1:
@@ -77,8 +77,11 @@ async def on_message(message):
         elif RandomDate == 3:
             e.set_image(url = "https://i.pinimg.com/originals/e0/04/7e/e0047ee0793602795410723a654c8826.jpg")
         elif RandomDate == 4:
-            print(5)
             e.set_image(url="https://www.jokescoff.com/wp-content/uploads/2017/12/Very-Funny-Jokes-for-Kids-in-English.jpg")
+        elif RandomDate == 5:
+            e.set_image(url = "https://i.pinimg.com/originals/13/ba/20/13ba20c03fef8b6df337916e17e51d94.jpg")
+        elif RandomDate == 6:
+            e.set_image(url = "https://i.pinimg.com/originals/58/d8/41/58d841c873cdb9afe199f7ad7bb6ceae.jpg")
         await message.channel.send(embed = e)
 
     elif message.content.startswith('$') and message.content != '$date' and message.content != '$time' and message.content != '$toss':
