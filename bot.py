@@ -37,6 +37,22 @@ async def on_message(message):
                     6) Type $tell me a joke to get a random joke from the internet""" , inline = False)
         await message.channel.send(embed=e)
 
+    elif str.lower(message.content) == '$i am feeling bored':
+        e = discord.Embed();
+        e.add_field(name = "Choose from the following :", value = """
+                1 to play cricket
+                2 to play football""", inline = False)
+        await message.channel.send(embed = e)
+        if str.lower(message.content) == "1": 
+            await message.channel.send("Here is how you play, you have to pick a number between 1 to 6. If I get the same one as yours, you are out, else the number will be added to your score")
+            number = random.randint(1, 6)
+            total
+            if message.content != number:
+                total = total + message.content 
+            else:
+                response = "Oops looks like you are out best of luck next time. Here is your score", total
+                await message.channel.send(response)
+
     elif str.lower(message.content) == '$toss':
         response = "Coin tossed"
         await message.channel.send(response)
