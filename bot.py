@@ -15,6 +15,15 @@ client = discord.Client()
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
+@client.event
+async def on_member_join(member):
+    channel = client.get_channel(749873608972697631)
+    await channel.send(f'Welcome to my server **{member.name}** you have now become one of the great people of discord.')
+    await member.create_dm()
+    await member.dm_channel.send(
+        f'Hi {member.name}, welcome to my Discord server!'
+    )
+
 
 @client.event
 async def on_message(message):
@@ -84,7 +93,7 @@ async def on_message(message):
             e.set_image(url = "https://i.pinimg.com/originals/58/d8/41/58d841c873cdb9afe199f7ad7bb6ceae.jpg")
         await message.channel.send(embed = e)
 
-    elif message.content.startswith('$') and message.content != '$date' and message.content != '$time' and message.content != '$toss':
+    elif message.content.startswith('$'):
        await message.channel.send("That command does not exist")
-
+    
 client.run(TOKEN)
