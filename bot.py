@@ -7,6 +7,7 @@ import discord
 load_dotenv()
 
 TOKEN = os.getenv("TOKEN")
+CHANNEL = os.getenv("CHANNEL")
 
 client = discord.Client()
 
@@ -14,10 +15,12 @@ client = discord.Client()
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
+    game = discord.Game("Helping in Great People");
+    await client.change_presence(status=discord.Status.online, activity=game)
 
 @client.event
 async def on_member_join(member):
-    channel = client.get_channel(749873608972697631)
+    channel = client.get_channel(CHANNEL)
     await channel.send(f'Welcome to my server **{member.name}** you have now become one of the great people of discord.')
     await member.create_dm()
     await member.dm_channel.send(
