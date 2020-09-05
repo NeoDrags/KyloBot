@@ -8,7 +8,7 @@ load_dotenv()
 
 TOKEN = os.getenv("TOKEN")
 CHANNEL = os.getenv("CHANNEL")
-
+channela = int(CHANNEL)
 client = discord.Client()
 
 
@@ -20,11 +20,17 @@ async def on_ready():
 
 @client.event
 async def on_member_join(member):
-    channel = client.get_channel(CHANNEL)
+    channel = client.get_channel(channela)
     await channel.send(f'Welcome to my server **{member.name}** you have now become one of the great people of discord.')
     await member.create_dm()
     await member.dm_channel.send(
-        f'Hi {member.name}, welcome to my Discord server!'
+        f"""Welcome **{member.name}** to the Great People server. It is the server for the Grade 9 Vibgyor High and here are the rules:
+The random messages will be sent in #time-pass-chatting-😀.
+Songs will be played in the #💿-music-and-bot-commands-👾.
+The entire coding questions will be played in the coding section of the server
+If you want to talk about doubts or show your ricing it will be in the linux section
+Anything about minecraft in the minecraft section
+And if you want to test your discord bot please in the #👾-bot-stuff-👾"""
     )
 
 
