@@ -46,7 +46,7 @@ async def on_message(message):
     
     elif str.lower(message.content) == "$send":
         response = ""
-        while response = "":
+        while response != "$send":
             response = message.content
         await message.channel.send(response)
 
