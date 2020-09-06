@@ -44,6 +44,12 @@ async def on_message(message):
         response = "happy birthday!"
         await message.channel.send(response)
     
+    elif str.lower(message.content) == $send:
+        response = ""
+        while response = "":
+            response = message.content
+        await message.channel.send(response)
+
     elif str.lower(message.content) == '$help':
         e = discord.Embed()
         e.add_field(name = "Commands that you can execute", value = """here are the commands that you can type they are :
