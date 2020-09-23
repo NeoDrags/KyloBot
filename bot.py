@@ -107,6 +107,12 @@ async def on_message(message):
         elif RandomDate == 6:
             e.set_image(url = "https://i.pinimg.com/originals/58/d8/41/58d841c873cdb9afe199f7ad7bb6ceae.jpg")
         await message.channel.send(embed = e)
+    
+    elif str.lower(message.content) == '$send':
+        msg = ""
+        while(msg == "$send" and msg = ""):
+            msg = message.content
+        response
 
     elif message.content.startswith('$'):
        await message.channel.send("That command does not exist")
