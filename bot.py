@@ -15,7 +15,7 @@ client = discord.Client()
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
-    game = discord.Game("Helping in Great People");
+    game = discord.Game("Helping in Great People")
     await client.change_presence(status=discord.Status.online, activity=game)
 
 @client.event
@@ -58,7 +58,7 @@ async def on_message(message):
                     3) Type $time to show the current time and date
                     4) Type $toss to peform the a coin toss
                     5) Type $date to show current date
-                    6) Type $tell me a joke to get a random joke from the internet""" , inline = False)
+                    6) Type $tell me a joke or $tmj to get a random joke from the internet""" , inline = False)
         await message.channel.send(embed=e)
 
     elif str.lower(message.content) == '$toss':
@@ -89,7 +89,7 @@ async def on_message(message):
     elif str.lower(message.content) == 'yeet':
         await message.channel.send('Yeet!')
     
-    elif str.lower(message.content) == '$tell me a joke':
+    elif str.lower(message.content) == '$tell me a joke' or str.lower(message.content) == '$tmj':
         e = discord.Embed()
         RandomDate = random.randint(0, 6)
         if RandomDate == 0:
@@ -108,11 +108,14 @@ async def on_message(message):
             e.set_image(url = "https://i.pinimg.com/originals/58/d8/41/58d841c873cdb9afe199f7ad7bb6ceae.jpg")
         await message.channel.send(embed = e)
     
-    elif str.lower(message.content) == '$send':
+    elif message.content == '$send':
+        await message.channel.send('Say the message!')
         msg = ""
-        while(msg == "$send" and msg = ""):
-            msg = message.content
-        response
+        while(msg == "" and msg == "$send"):
+            msg = message.contente
+        response = "**{.author}** says", msg
+        res = str.format(response)
+        await message.channel.send(res)
 
     elif message.content.startswith('$'):
        await message.channel.send("That command does not exist")
