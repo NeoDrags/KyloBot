@@ -1,16 +1,28 @@
 from dotenv import load_dotenv
+from discord.utils import get
 import os
 import random
 from datetime import datetime
 import discord
+from discord.ext import commands
 
 load_dotenv()
 
+ROLE = "member"
+
+bot = commands.Bot(command_prefix=".")
+
 TOKEN = os.getenv("TOKEN")
 CHANNEL = os.getenv("CHANNEL")
+role = int(os.getenv("ROLE"))
 channela = int(CHANNEL)
 client = discord.Client()
 
+@bot.event
+async def verify(member):
+    role = get(member.guild.roles, name = ROLE)
+    await member.add_roles(role)
+    print(f"{member} was given {role}")
 
 @client.event
 async def on_ready():
@@ -19,7 +31,7 @@ async def on_ready():
     await client.change_presence(status=discord.Status.online, activity=game)
 
 @client.event
-async def on_member_join(member):
+async def on_member_join(member: discord.Member, ctx):
     channel = client.get_channel(channela)
     await channel.send(f'Welcome to my server **{member.name}** you have now become one of the great people of discord.')
     await member.create_dm()
@@ -31,7 +43,13 @@ The entire coding questions will be played in the coding section of the server
 If you want to talk about doubts or show your ricing it will be in the linux section
 Anything about minecraft in the minecraft section
 And if you want to test your discord bot please in the #👾-bot-stuff-👾"""
+    show_avatar = discord.Embed(
+        # color = discord.Color.dark_teal()
     )
+    show_avatar.set_image(url = '{}'.format(member.avatar_url))    
+    await ctx.send(embed = show_avatar)
+    )
+
 
 
 @client.event
@@ -89,7 +107,15 @@ async def on_message(message):
     elif str.lower(message.content) == 'yeet':
         await message.channel.send('Yeet!')
     
-    elif str.lower(message.content) == '$tell me a joke' or str.lower(message.content) == '$tmj':
+    elif message.content == '$verify':
+            member = message.author
+            role = discord.utils.get(message.guild.roles, name = "member")
+            await member.add_roles(role)
+            await message.channel.send(f"{member.name} has been verified")
+
+
+
+    elif str.lower(message.content) == '$tell me a joke image' or str.lower(message.content) == '$tmji':
         e = discord.Embed()
         RandomDate = random.randint(0, 6)
         if RandomDate == 0:

@@ -1,4 +1,5 @@
 flycheck*
 env/
 .env
+.vscode
 .*
