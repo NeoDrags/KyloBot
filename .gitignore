@@ -2,4 +2,6 @@ flycheck*
 env/
 .env
 .vscode
+.gitignore
 .*
+.env
