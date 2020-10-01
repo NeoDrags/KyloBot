@@ -1,0 +1,5 @@
+flycheck*
+env/
+.env
+.vscode
+.*
