@@ -18,10 +18,10 @@ CHANNEL = os.getenv("CHANNEL")
 channela = int(CHANNEL)
 client = discord.Client()
 
-@bot.command()
-async def avatar(ctx,*, avamember):
-    user = bot.get_user(avamember)
-    await ctx.send(f"{user.avatar_url}")
+# @bot.command()
+# async def avatar(ctx,*, avamember):
+#     user = bot.get_user(avamember)
+#     await ctx.send(f"{user.avatar_url}")
 
 @client.event
 async def on_ready():
