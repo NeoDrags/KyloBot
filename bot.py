@@ -10,19 +10,18 @@ load_dotenv()
 
 ROLE = "member"
 
-bot = commands.Bot(command_prefix=".")
+bot = commands.Bot(command_prefix=">")
 
 TOKEN = os.getenv("TOKEN")
 CHANNEL = os.getenv("CHANNEL")
-role = int(os.getenv("ROLE"))
+# role = int(os.getenv("ROLE"))
 channela = int(CHANNEL)
 client = discord.Client()
 
-@bot.event
-async def verify(member):
-    role = get(member.guild.roles, name = ROLE)
-    await member.add_roles(role)
-    print(f"{member} was given {role}")
+@bot.command()
+async def avatar(ctx,*, avamember):
+    user = bot.get_user(avamember)
+    await ctx.send(f"{user.avatar_url}")
 
 @client.event
 async def on_ready():
@@ -43,12 +42,7 @@ The entire coding questions will be played in the coding section of the server
 If you want to talk about doubts or show your ricing it will be in the linux section
 Anything about minecraft in the minecraft section
 And if you want to test your discord bot please in the #👾-bot-stuff-👾"""
-    show_avatar = discord.Embed(
-        # color = discord.Color.dark_teal()
-    )
-    show_avatar.set_image(url = '{}'.format(member.avatar_url))    
-    await ctx.send(embed = show_avatar)
-    )
+)
 
 
 
