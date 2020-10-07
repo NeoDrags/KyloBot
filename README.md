@@ -9,3 +9,9 @@ Here are the libraries that are being used:
 
 [![.env](https://img.shields.io/badge/-.env-blue?style=for-the-badge&logo=NixOs&logoColor=violet)](https://pypi.org/project/python-dotenv/)
 
+Please, if you are contributing, please install the requirements 
+
+``` python
+pip3 install -r requirements.txt
+```
+
