@@ -117,7 +117,7 @@ async def on_message(message):
 
     elif str.lower(message.content) == '$tell me a joke image' or str.lower(message.content) == '$tmji':
         e = discord.Embed()
-        RandomDate = random.randint(0, 6)
+        RandomDate = random.randint(0, 10)
         if RandomDate == 0:
             e.set_image(url = "https://i.pinimg.com/originals/63/fa/0e/63fa0ed29577611ffe5afa43bc298708.jpg")
         elif RandomDate == 1:
@@ -132,6 +132,14 @@ async def on_message(message):
             e.set_image(url = "https://i.pinimg.com/originals/13/ba/20/13ba20c03fef8b6df337916e17e51d94.jpg")
         elif RandomDate == 6:
             e.set_image(url = "https://i.pinimg.com/originals/58/d8/41/58d841c873cdb9afe199f7ad7bb6ceae.jpg")
+        elif RandomDate == 7:
+            e.set_image(url = "https://imgs.xkcd.com/comics/python.png")
+        elif RandomDate == 8:
+            e.set_image(url = "https://i.redd.it/tep9xw80lhs51.png")
+        elif RandomDate == 9:
+            e.set_image(url = "https://external-preview.redd.it/R1ycGzRU2BJfStiYgQ7vtTW_fVUZdxo2OKY-Od-t_kE.jpg?width=640&crop=smart&auto=webp&s=1ffa8c5eb7c44e2d8f416faaa7392d5a5782ae64")
+        elif RandomDate == 10:
+            e.set_image(url="https://preview.redd.it/kxeexaamhes51.jpg?width=640&crop=smart&auto=webp&s=6b17f0736f948628f1bd03d1bd6e49dbccc1da21")
         await message.channel.send(embed = e)
     
     elif message.content == '$send':
