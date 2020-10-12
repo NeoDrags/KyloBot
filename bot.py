@@ -5,23 +5,30 @@ import random
 from datetime import datetime
 import discord
 from discord.ext import commands
+import spotipy
+from spotipy.oauth2 import SpotifyClientCredentials
 
 load_dotenv()
 
 ROLE = "member"
 
-bot = commands.Bot(command_prefix=">")
+bot = commands.Bot(command_prefix="~")
 
+CLIENT_ID = os.getenv("CLIENT_ID")
+CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 TOKEN = os.getenv("TOKEN")
 CHANNEL = os.getenv("CHANNEL")
 # role = int(os.getenv("ROLE"))
 channela = int(CHANNEL)
 client = discord.Client()
 
-# @bot.command()
-# async def avatar(ctx,*, avamember):
-#     user = bot.get_user(avamember)
-#     await ctx.send(f"{user.avatar_url}")
+sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="CLIENT_ID",
+                                                           client_secret="CLIENT_SECRET"))
+
+@bot.command()
+async def test(message, *, text):
+  await message.channel.send(f"You text, sir:\n{text}")
+
 
 @client.event
 async def on_ready():
@@ -131,8 +138,8 @@ async def on_message(message):
     elif message.content == '$send':
         await message.channel.send('Say the message!')
         msg = ""
-        while(msg == "" and msg == "$send"):
-            msg = message.contente
+        while msg == "" and msg == "$send":
+            msg = message.content
         response = "**{.author}** says", msg
         res = str.format(response)
         await message.channel.send(res)
