@@ -18,8 +18,7 @@ CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 TOKEN = os.getenv("TOKEN")
 CHANNEL = os.getenv("CHANNEL")
-# role = int(os.getenv("ROLE"))
-channela = int(CHANNEL)
+channels = int(CHANNEL)
 client = discord.Client()
 
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="CLIENT_ID",
@@ -38,7 +37,7 @@ async def on_ready():
 
 @client.event
 async def on_member_join(member: discord.Member, ctx):
-    channel = client.get_channel(channela)
+    channel = client.get_channel(channels)
     await channel.send(f'Welcome to my server **{member.name}** you have now become one of the great people of discord.')
     await member.create_dm()
     await member.dm_channel.send(
