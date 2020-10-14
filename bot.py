@@ -10,7 +10,7 @@ load_dotenv()
 TOKEN = os.getenv("TOKEN")
 CHANNEL = os.getenv("CHANNEL")
 channela = int(CHANNEL)
-client = discord.Bot(command_prefix="!")
+client = discord.Bot(command_prefix="$")
 
 
 @client.event
