@@ -3,13 +3,14 @@ import os
 import random
 from datetime import datetime
 import discord
+from discord.ext.commands import Bot
 
 load_dotenv()
 
 TOKEN = os.getenv("TOKEN")
 CHANNEL = os.getenv("CHANNEL")
 channela = int(CHANNEL)
-client = discord.Client()
+client = discord.Bot(command_prefix="!")
 
 
 @client.event
@@ -34,6 +35,16 @@ And if you want to test your discord bot please in the #👾-bot-stuff-👾"""
     )
 
 
+@client.command(name="send")
+async def send_command(ctx):
+    response = ""
+    while response != "$send":
+        response = message.content
+    await message.channel.send(response)
+
+# ...
+    
+    
 @client.event
 async def on_message(message):
     if message.author == client.user:
@@ -42,12 +53,6 @@ async def on_message(message):
 
     if message.content.startswith('happy birthday'):
         response = "happy birthday!"
-        await message.channel.send(response)
-    
-    elif str.lower(message.content) == "$send":
-        response = ""
-        while response != "$send":
-            response = message.content
         await message.channel.send(response)
 
     elif str.lower(message.content) == '$help':
