@@ -41,9 +41,9 @@ async def on_member_join(member: discord.Member, ctx):
     await channel.send(f'Welcome to my server **{member.name}** you have now become one of the great people of discord.')
     await member.create_dm()
     await member.dm_channel.send(
-        f"""Welcome **{member.name}** to the Great People server. It is the server for the Grade 9 Vibgyor High and here are the rules:
+        f"""Welcome **{member.name}** to the 9D server. It is the server for the Grade 9 Vibgyor High and here are the rules:
 The random messages will be sent in #time-pass-chatting-😀.
-Songs will be played in the #💿-music-and-bot-commands-👾.
+Songs will be played in the #💿-muscic-and-bot-commands-👾.
 The entire coding questions will be played in the coding section of the server
 If you want to talk about doubts or show your ricing it will be in the linux section
 Anything about minecraft in the minecraft section
