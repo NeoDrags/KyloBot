@@ -15,3 +15,8 @@ Please, if you are contributing, please install the requirements
 pip3 install -r requirements.txt
 ```
 
+| Libraries |   File     |
+| --------- |------      |
+| Discord.py|All in      |
+| pyspotify |requirements|
+| python-env|.txt        |
